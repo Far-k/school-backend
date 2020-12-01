@@ -1,4 +1,5 @@
 class Api::V1::StudentsController < ApplicationController
+    skip_before_action :authorized, only: [:create, :index] 
     def index
         student = Student.all 
         render json: student

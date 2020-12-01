@@ -14,17 +14,18 @@ ActiveRecord::Schema.define(version: 2020_11_20_194259) do
 
   create_table "contents", force: :cascade do |t|
     t.integer "course_id"
+    t.integer "level"
     t.integer "instructor_id"
     t.string "content_type"
     t.string "material"
     t.integer "likes"
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
-    t.integer "level"
     t.integer "subject_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

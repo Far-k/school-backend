@@ -14,7 +14,6 @@ Course.destroy_all
 Content.destroy_all
 
 
-
 i1 = Instructor.create(name: "Bob", username: "B", password_digest: "abc")
 i2 = Instructor.create(name: "Brand", username: "D", password_digest: "123")
 i3 = Instructor.create(name: "Jess", username: "J", password_digest: "890")
@@ -26,15 +25,15 @@ st3 = Student.create(name: "Nolan", username: "N", password_digest: "456")
 s1 = Subject.create(name: "Math", instructor_id: i1.id )
 s2 = Subject.create(name: "Science", instructor_id: i2.id)
 
-c1 = Course.create(name: "Algebra", level:1, subject_id: s1.id)
-c2 = Course.create(name: "Chemistry", level:1, subject_id: s2.id)
-c3 = Course.create(name: "Algebra", level:2, subject_id: s1.id)
-c4 = Course.create(name: "Biology", level:1, subject_id: s2.id)
+c1 = Course.create(name: "Geometry", subject_id: s1.id)
+c2 = Course.create(name: "Chemistry", subject_id: s2.id)
+c3 = Course.create(name: "Algebra II", subject_id: s1.id)
+c4 = Course.create(name: "Biology", subject_id: s2.id)
 
-co1 = Content.create(instructor_id: i1.id, course_id: c1.id, content_type: "https://www.youtube.com/watch?v=Z4LUfVfGfAI&ab_channel=CoachingNoCodeApps", material: "video-file", likes: 8)
-co2 = Content.create(instructor_id: i2.id, course_id: c2.id, content_type: "https://www.youtube.com/watch?v=3sjMRS1gJys&ab_channel=StephenGrider", material: "video-file", likes: 4)
-co2 = Content.create(instructor_id: i3.id, course_id: c4.id, content_type: "https://www.youtube.com/watch?v=oJ5s2hs_cKk&ab_channel=AaronJack", material: "video-file", likes: 25)
-
+co1 = Content.create(instructor_id: i1.id, course_id: c1.id, level: 1, title: "Quadratic Equation", content_type: "https://www.youtube.com/embed?v=Z4LUfVfGfAI&ab_channel=CoachingNoCodeApps", material: "video-file", likes: 8)
+co2 = Content.create(instructor_id: i2.id, course_id: c2.id, level: 1, title: "Periodic Table", content_type: "https://www.youtube.com/embed?v=3sjMRS1gJys&ab_channel=StephenGrider", material: "video-file", likes: 4)
+co3 = Content.create(instructor_id: i3.id, course_id: c4.id, level: 1, title: "Life Cycle", content_type: "https://www.youtube.com/embed?v=oJ5s2hs_cKk&ab_channel=AaronJack", material: "video-file", likes: 25)
+co4 = Content.create(instructor_id: i3.id, course_id: c3.id, level: 1, title: "Exponential Function", content_type: "https://www.youtube.com/embed?v=oJ5s2hs_cKk&ab_channel=AaronJack", material: "video-file", likes: 25)
 
 sc1 = StudentCourse.create(course_id: c1.id, student_id: st1.id, IsPassed: false)
 sc2 = StudentCourse.create(course_id: c2.id, student_id: st2.id, IsPassed: false)
